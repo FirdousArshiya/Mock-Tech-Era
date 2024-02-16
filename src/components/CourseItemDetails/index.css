@@ -1,0 +1,14 @@
+.item-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  width: 80%;
+}
+.item-details-img {
+  width: 300px;
+  margin-right: 20px;
+}
+.image {
+  width: 300px;
+}
