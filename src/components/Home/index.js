@@ -8,7 +8,7 @@ import './index.css'
 const apiStatusConstants = {
   inProgress: 'IN_PROGRESS',
   success: 'SUCCESS',
-  failure: 'failure',
+  failure: 'FAILURE',
   initial: 'INITIAL',
 }
 
@@ -45,7 +45,7 @@ class Home extends Component {
 
   renderLoadingView = () => (
     <div className="spinner" data-testid="loader">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+      <Loader type="ThreeDots" color="#00BFFF" height="50" width="50" />
     </div>
   )
 
@@ -96,7 +96,7 @@ class Home extends Component {
     return (
       <>
         <Header />
-        <h1>Courses</h1>
+        <h1 className="heading">Courses</h1>
         <div className="course-details-container">
           {this.renderBasedOnApiStatus()}
         </div>

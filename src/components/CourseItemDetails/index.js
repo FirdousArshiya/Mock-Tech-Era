@@ -6,14 +6,14 @@ import './index.css'
 const apiStatusConstants = {
   inProgress: 'IN_PROGRESS',
   success: 'SUCCESS',
-  failure: 'failure',
+  failure: 'FAILURE',
   initial: 'INITIAL',
 }
 
 class CourseItemDetails extends Component {
   state = {
     // eslint-disable-next-line
-    coursesItemDetails: {},
+    eachCourseDetails: {},
     apiStatus: apiStatusConstants.initial,
   }
 
@@ -39,7 +39,7 @@ class CourseItemDetails extends Component {
       }
       this.setState({
         // eslint-disable-next-line
-        coursesItemDetails: updatedData,
+        eachCourseDetails: updatedData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -49,7 +49,7 @@ class CourseItemDetails extends Component {
 
   renderLoadingView = () => (
     <div className="spinner" data-testid="loader">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+      <Loader type="ThreeDots" color="#00BFFF" height="50" width="50" />
     </div>
   )
 
@@ -72,17 +72,17 @@ class CourseItemDetails extends Component {
   )
 
   renderCourseDetailsView = () => {
-    const {coursesItemDetails} = this.props
-    const {description, name, imageUrl} = coursesItemDetails
+    const {eachCourseDetails} = this.state
+    const {imageUrl, name, description} = eachCourseDetails
 
     return (
       <div className="item-details">
         <div>
           <img src={imageUrl} alt={name} className="image" />
         </div>
-        <div>
-          <h1>{name}</h1>
-          <p>{description}</p>
+        <div className="content">
+          <h1 className="heading">{name}</h1>
+          <p className="para">{description}</p>
         </div>
       </div>
     )
